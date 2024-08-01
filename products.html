@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心 - 企业官网</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/products.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>企业官网</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">关于我们</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link active">产品中心</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">联系我们</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>产品中心</h1>
+            <p>为您提供全方位的解决方案</p>
+        </div>
+    </section>
+
+    <!-- 产品分类 -->
+    <section class="product-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">全部产品</button>
+                <button class="tab-btn" data-category="core">核心产品</button>
+                <button class="tab-btn" data-category="service">增值服务</button>
+                <button class="tab-btn" data-category="support">技术支持</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品列表 -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                <!-- 核心产品 -->
+                <div class="product-item" data-category="core">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/1E88E5/FFFFFF?text=核心产品1" alt="核心产品1">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary" onclick="openProductModal('product1')">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3>企业管理系统</h3>
+                        <p>全面的企业资源规划解决方案，帮助企业提升管理效率</p>
+                        <div class="product-features">
+                            <span class="feature-tag">ERP</span>
+                            <span class="feature-tag">CRM</span>
+                            <span class="feature-tag">财务管理</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">¥99,999</span>
+                            <span class="price-unit">/年</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="core">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/1976D2/FFFFFF?text=核心产品2" alt="核心产品2">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary" onclick="openProductModal('product2')">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3>数据分析平台</h3>
+                        <p>强大的数据分析工具，助力企业数据驱动决策</p>
+                        <div class="product-features">
+                            <span class="feature-tag">BI</span>
+                            <span class="feature-tag">大数据</span>
+                            <span class="feature-tag">可视化</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">¥79,999</span>
+                            <span class="price-unit">/年</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="core">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/1565C0/FFFFFF?text=核心产品3" alt="核心产品3">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary" onclick="openProductModal('product3')">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3>云服务平台</h3>
+                        <p>安全可靠的云服务解决方案，支持弹性扩展</p>
+                        <div class="product-features">
+                            <span class="feature-tag">云计算</span>
+                            <span class="feature-tag">容器化</span>
+                            <span class="feature-tag">高可用</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">¥59,999</span>
+                            <span class="price-unit">/年</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 增值服务 -->
+                <div class="product-item" data-category="service">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/0D47A1/FFFFFF?text=增值服务1" alt="增值服务1">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary" onclick="openProductModal('service1')">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3>定制开发服务</h3>
+                        <p>根据客户需求提供个性化定制开发解决方案</p>
+                        <div class="product-features">
+                            <span class="feature-tag">定制化</span>
+                            <span class="feature-tag">快速交付</span>
+                            <span class="feature-tag">专业团队</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">面议</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="service">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/1E88E5/FFFFFF?text=增值服务2" alt="增值服务2">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary" onclick="openProductModal('service2')">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3>系统集成服务</h3>
+                        <p>专业的系统集成服务，确保各系统无缝对接</p>
+                        <div class="product-features">
+                            <span class="feature-tag">集成</span>
+                            <span class="feature-tag">API</span>
+                            <span class="feature-tag">数据迁移</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">面议</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 技术支持 -->
+                <div class="product-item" data-category="support">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/1976D2/FFFFFF?text=技术支持1" alt="技术支持1">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary" onclick="openProductModal('support1')">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3>7x24小时技术支持</h3>
+                        <p>全天候技术支持服务，确保系统稳定运行</p>
+                        <div class="product-features">
+                            <span class="feature-tag">24/7</span>
+                            <span class="feature-tag">快速响应</span>
+                            <span class="feature-tag">专业团队</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">¥19,999</span>
+                            <span class="price-unit">/年</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item" data-category="support">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x300/1565C0/FFFFFF?text=技术支持2" alt="技术支持2">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary" onclick="openProductModal('support2')">查看详情</button>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3>培训服务</h3>
+                        <p>专业的培训服务，帮助用户快速掌握系统使用</p>
+                        <div class="product-features">
+                            <span class="feature-tag">培训</span>
+                            <span class="feature-tag">认证</span>
+                            <span class="feature-tag">在线学习</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">¥9,999</span>
+                            <span class="price-unit">/人</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品详情模态框 -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalDescription"></p>
+                    <div class="modal-features" id="modalFeatures"></div>
+                    <div class="modal-price" id="modalPrice"></div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary">立即咨询</button>
+                        <button class="btn btn-secondary">下载资料</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>企业官网</h3>
+                    <p>专业、创新、值得信赖的合作伙伴</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p><i class="fas fa-phone"></i> +86 400-123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@company.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 北京市朝阳区xxx大厦</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 企业官网. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

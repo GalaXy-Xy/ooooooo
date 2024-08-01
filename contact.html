@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 企业官网</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>企业官网</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">关于我们</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">产品中心</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">联系我们</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>联系我们</h1>
+            <p>我们期待与您的合作</p>
+        </div>
+    </section>
+
+    <!-- 联系信息 -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>公司地址</h3>
+                    <p>北京市朝阳区xxx大厦<br>100000</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>联系电话</h3>
+                    <p>+86 400-123-4567<br>+86 010-12345678</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>邮箱地址</h3>
+                    <p>info@company.com<br>sales@company.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>工作时间</h3>
+                    <p>周一至周五 9:00-18:00<br>周六 9:00-12:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系表单和地图 -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <h2>发送消息</h2>
+                    <p>请填写以下表单，我们会尽快与您联系</p>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">姓名 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱 *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">电话</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">公司名称</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题 *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">请选择主题</option>
+                                <option value="product">产品咨询</option>
+                                <option value="service">服务咨询</option>
+                                <option value="support">技术支持</option>
+                                <option value="partnership">合作洽谈</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">消息内容 *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="请详细描述您的需求..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">发送消息</button>
+                    </form>
+                </div>
+                <div class="map-container">
+                    <h2>我们的位置</h2>
+                    <div class="map-placeholder">
+                        <img src="https://via.placeholder.com/600x400/1E88E5/FFFFFF?text=地图位置" alt="公司位置">
+                        <div class="map-overlay">
+                            <p><i class="fas fa-map-marker-alt"></i> 北京市朝阳区xxx大厦</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="faq">
+        <div class="container">
+            <h2>常见问题</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>如何购买我们的产品？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>您可以通过以下方式购买我们的产品：1. 在线咨询：填写联系表单，我们的销售团队会与您联系；2. 电话咨询：拨打400-123-4567；3. 邮件咨询：发送邮件至sales@company.com。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>产品是否提供试用？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>是的，我们为大部分产品提供免费试用。试用期通常为30天，您可以在试用期间充分了解产品功能和性能。如需申请试用，请联系我们的销售团队。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>技术支持服务如何？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>我们提供7x24小时技术支持服务，包括：1. 在线技术支持；2. 电话支持；3. 远程协助；4. 现场服务（如需要）。我们的技术团队会快速响应并解决您的问题。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>是否提供定制开发服务？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>是的，我们提供专业的定制开发服务。我们的开发团队会根据您的具体需求，提供个性化的解决方案。定制开发项目包括需求分析、方案设计、开发实施、测试部署等完整流程。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>企业官网</h3>
+                    <p>专业、创新、值得信赖的合作伙伴</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p><i class="fas fa-phone"></i> +86 400-123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@company.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 北京市朝阳区xxx大厦</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 企业官网. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
