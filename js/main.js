@@ -153,12 +153,13 @@ function initScrollEffects() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('fade-in-up');
             }
         });
     }, observerOptions);
 
     // 观察需要动画的元素
-    const animatedElements = document.querySelectorAll('.product-card, .news-item, .team-member, .culture-item, .contact-item');
+    const animatedElements = document.querySelectorAll('.product-card, .news-item, .team-member, .culture-item, .contact-item, .about-content, .intro-content');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -202,6 +203,20 @@ function initAnimations() {
                 clearInterval(timer);
             }
         }, 100);
+    });
+
+    // 添加鼠标悬停效果
+    const hoverElements = document.querySelectorAll('.product-card, .news-item, .team-member');
+    hoverElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        });
     });
 }
 
