@@ -27,20 +27,22 @@ function initProductTabs() {
 
 // 产品过滤功能
 function filterProducts(category, productItems) {
-    productItems.forEach(item => {
+    productItems.forEach((item, index) => {
         const itemCategory = item.getAttribute('data-category');
         
         if (category === 'all' || itemCategory === category) {
             item.style.display = 'block';
             item.classList.remove('hidden');
-            // 添加淡入动画
+            // 添加淡入动画，使用延迟创建波浪效果
             setTimeout(() => {
                 item.style.opacity = '1';
                 item.style.transform = 'scale(1)';
-            }, 100);
+                item.classList.add('fade-in-up');
+            }, index * 100);
         } else {
             item.style.opacity = '0';
             item.style.transform = 'scale(0.8)';
+            item.classList.remove('fade-in-up');
             setTimeout(() => {
                 item.style.display = 'none';
                 item.classList.add('hidden');
@@ -197,10 +199,22 @@ function initProductHoverEffects() {
     productCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = '0 20px 50px rgba(0,0,0,0.2)';
+            // 添加悬停时的图片缩放效果
+            const img = this.querySelector('.product-image img');
+            if (img) {
+                img.style.transform = 'scale(1.1)';
+            }
         });
         
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            // 恢复图片缩放
+            const img = this.querySelector('.product-image img');
+            if (img) {
+                img.style.transform = 'scale(1)';
+            }
         });
     });
 }
