@@ -256,6 +256,7 @@ function animateContactInfo() {
             item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             item.style.opacity = '1';
             item.style.transform = 'translateY(0)';
+            item.classList.add('fade-in-up');
         }, index * 200);
     });
 }
@@ -272,12 +273,14 @@ function initCharacterCount() {
     counter.style.fontSize = '0.8rem';
     counter.style.color = '#666';
     counter.style.marginTop = '0.5rem';
+    counter.style.transition = 'color 0.3s ease';
     
     textarea.parentNode.appendChild(counter);
     
     function updateCount() {
         const remaining = maxLength - textarea.value.length;
-        counter.textContent = `剩余 ${remaining} 字符`;
+        const percentage = (remaining / maxLength) * 100;
+        counter.textContent = `剩余 ${remaining} 字符 (${Math.round(percentage)}%)`;
         
         if (remaining < 50) {
             counter.style.color = '#dc3545';
@@ -293,11 +296,56 @@ function initCharacterCount() {
     updateCount();
 }
 
+// 表单自动保存功能
+function initAutoSave() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    
+    const formData = {};
+    
+    // 保存表单数据到本地存储
+    function saveFormData() {
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            if (input.name && input.value) {
+                formData[input.name] = input.value;
+            }
+        });
+        localStorage.setItem('contactFormData', JSON.stringify(formData));
+    }
+    
+    // 恢复表单数据
+    function restoreFormData() {
+        const savedData = localStorage.getItem('contactFormData');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            Object.keys(data).forEach(key => {
+                const input = form.querySelector(`[name="${key}"]`);
+                if (input) {
+                    input.value = data[key];
+                }
+            });
+        }
+    }
+    
+    // 监听表单输入
+    form.addEventListener('input', debounce(saveFormData, 1000));
+    
+    // 表单提交成功后清除保存的数据
+    form.addEventListener('submit', function() {
+        localStorage.removeItem('contactFormData');
+    });
+    
+    // 页面加载时恢复数据
+    restoreFormData();
+}
+
 // 页面加载完成后初始化
 window.addEventListener('load', function() {
     initMap();
     animateContactInfo();
     initCharacterCount();
+    initAutoSave();
 });
 
 // 导出函数
@@ -312,5 +360,6 @@ window.ContactJS = {
     validateField,
     initMap,
     animateContactInfo,
-    initCharacterCount
+    initCharacterCount,
+    initAutoSave
 };
