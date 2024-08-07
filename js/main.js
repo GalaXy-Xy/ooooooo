@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initSlider();
     initScrollEffects();
     initAnimations();
+    initLazyLoading();
+    preloadCriticalResources();
 });
 
 // 导航功能
@@ -246,6 +248,41 @@ function throttle(func, limit) {
     };
 }
 
+// 性能优化：图片懒加载
+function initLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// 性能优化：预加载关键资源
+function preloadCriticalResources() {
+    const criticalImages = [
+        'https://via.placeholder.com/800x400/1E88E5/FFFFFF?text=企业形象',
+        'https://via.placeholder.com/800x400/1976D2/FFFFFF?text=科技创新',
+        'https://via.placeholder.com/800x400/1565C0/FFFFFF?text=专业团队'
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+}
+
 // 页面加载完成后的初始化
 window.addEventListener('load', function() {
     // 隐藏加载动画（如果有的话）
@@ -270,5 +307,7 @@ window.MainJS = {
     initNavigation,
     initSlider,
     initScrollEffects,
-    initAnimations
+    initAnimations,
+    initLazyLoading,
+    preloadCriticalResources
 };
