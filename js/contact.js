@@ -329,7 +329,7 @@ function initAutoSave() {
     }
     
     // 监听表单输入
-    form.addEventListener('input', debounce(saveFormData, 1000));
+    form.addEventListener('input', window.MainJS ? window.MainJS.debounce(saveFormData, 1000) : debounce(saveFormData, 1000));
     
     // 表单提交成功后清除保存的数据
     form.addEventListener('submit', function() {
@@ -348,6 +348,19 @@ window.addEventListener('load', function() {
     initAutoSave();
 });
 
+// 工具函数（如果MainJS不可用）
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // 导出函数
 window.ContactJS = {
     handleFormSubmit,
@@ -361,5 +374,6 @@ window.ContactJS = {
     initMap,
     animateContactInfo,
     initCharacterCount,
-    initAutoSave
+    initAutoSave,
+    debounce
 };
